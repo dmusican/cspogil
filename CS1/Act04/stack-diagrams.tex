@@ -48,10 +48,61 @@ Because they are stored in different memory locations, the values are independen
 
 \newpage
 
+\model{Tossing in loops and global variables}
+
+The program below has a global variable (\java{ledPin}), and also a variable
+inside of a loop (\java{i} in the \java{for} loop).
+
+
+\begin{javalst}
+
+  int ledPin = 13;
+  
+  void blinkLED(int gap) {
+    digitalWrite(ledPin, HIGH);
+    delay(gap);
+    digitalWrite(ledPin, LOW);
+    delay(gap);
+  }
+  
+  void loop() {
+    int gap = 1000;
+    for (int i=0; i < 5; i++) {
+      blinkLED(gap+i);
+    }
+    Serial.println("Here");
+  }
+
+\end{javalst}
+
+\Q Global variables are created and initialized first before any function is
+called. Based on this knowledge, explain how you would represent a global
+variable (such as \java{ledPin}) in a stack diagram.
+
+\vspace{2cm}
+
+\Q The variable \java{i} in the \java{for} loop is created when the \java{for}
+loop begins, and ceases to exist when the \java{for} loop ends. In many ways,
+this is similar to variables that exist inside of functions. Based on this
+knowledge, explain how you would represent a loop variable (such as \java{i}) in
+a stack diagram.
+
+\vspace{2cm}
+
+
+\Q In this program, the same function (\java{blinkLED}) is called more than
+once. Think through and explain how you would represent that in a stack diagram.
+
+\vspace{2cm}
+
 \Q \label{drawing}
-Draw a stack diagram to show the state of memory just before \java{println} is called.
-Assume the user inputs the value 10.
-(You should be able to do this kind of math without a calculator.)
+Draw a stack diagram to show the state of memory in this program just before \java{println} is called.
+
 
 \newpage
 
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

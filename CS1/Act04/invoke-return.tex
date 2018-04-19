@@ -1,31 +1,34 @@
 \model{Invoke and Return}
 
-Each statement in this program \emph{invokes} (or calls) a method.
-At the end of a method, Java \emph{returns} to where it was invoked.
+Each statement in this program \emph{invokes} (or calls) a function.
+At the end of a function, C++ \emph{returns} to where it was invoked.
 The list of events on the right illustrates how the program runs.
 
 \vspace{3ex}
 
 \begin{minipage}{0.68\textwidth}
 \begin{javabox}
-public class Model {
-    
-    public static void main(String[] args) {
-        System.out.println("First line.");
-        threeLine();
-        System.out.println("Second line.");
+void setup() {
+    Serial.begin(9600);
+}
+
+void newLine() {
+    Serial.println();
+}
+
+void threeLine() {
+    newLine();
+    newLine();
+    newLine();
+}
+
+void loop() {
+    Serial.println("First line.");
+    threeLine();
+    Serial.println("Second line.");
+
+    while(true) {
     }
-    
-    public static void newLine() {
-        System.out.println();
-    }
-    
-    public static void threeLine() {
-        newLine();
-        newLine();
-        newLine();
-    }
-    
 }
 \end{javabox}
 \end{minipage}
@@ -34,29 +37,27 @@ public class Model {
 \begin{verbatim}
 
 INVOKE println
-RETURN to line 5
+RETURN to line 16
 INVOKE threeLine
     INVOKE newLine
         INVOKE println
-        RETURN to line 11
-    RETURN to line 15
+        RETURN to line 6
+    RETURN to line 10
     INVOKE newLine
         INVOKE println
-        RETURN to line 11
-    RETURN to line 16
+        RETURN to line 6
+    RETURN to line 11
     INVOKE newLine
         INVOKE println
-        RETURN to line 11
-    RETURN to line 17
-RETURN to line 6
+        RETURN to line 6
+    RETURN to line 12
+RETURN to line 17
 INVOKE println
-RETURN to line 7
+RETURN to line 18
 
 \end{verbatim}
 \end{minipage}
 
-
-\quest{15 min}
 
 
 \Q \label{lines}
@@ -67,7 +68,6 @@ How many lines of source code invoke the \java{println} method? \ans{Three (line
 \Q \label{times}
 How many times is \java{println} invoked when the program runs? \ans{Five times}
 \vspace{1em}
-
 
 \Q For each \texttt{INVOKE} on the right, draw an arrow to the corresponding line of code.
 (Plan ahead so that crossing lines will still be legible.) \ans{There should be 9 lines total.}
@@ -87,8 +87,15 @@ Second line.\n
 \end{javaans}
 \end{answer}
 
+\Q \label{times}
+What purpose does the \java{while} loop serve at the end of the function
+\java{loop}?
+\vspace{10em}
 
-\Q When Java sees a name like \java{x}, \java{count}, or \java{newLine}, how can it tell whether it's a variable or a method? (Hint: syntax)
+
+
+
+\Q When C++ sees a name like \java{x}, \java{count}, or \java{newLine}, how can it tell whether it's a variable or a method? (Hint: syntax)
 
 \begin{answer}[5em]
 Methods have parentheses, and variables do not.
@@ -96,7 +103,7 @@ They are similar to functions in math  : when you see $g(x)$, you know that $g$ 
 \end{answer}
 
 
-\Q What is the difference between a method and a variable? What do they have in common?
+\Q What is the difference between a function and a variable? What do they have in common?
 
 \begin{answer}[5em]
 All computer programs, regardless of language, consist of \emph{code} and \emph{data}.
@@ -104,9 +111,14 @@ Methods contain code (statements or instructions), whereas variables contain dat
 \end{answer}
 
 
-\Q In your own words, describe what methods are for. Why not just write everything in \java{main}?
+\Q In your own words, describe what functions are for. Why not just write everything in \java{main}?
 
 \begin{answer}[5em]
 Methods help organize the code into separate parts.
 They also make it possible to write code once and use it multiple times.
 \end{answer}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

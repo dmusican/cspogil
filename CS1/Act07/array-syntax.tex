@@ -8,13 +8,12 @@ Once the array is created, its length cannot be changed.
 
 \begin{quote}
 \begin{javalst}
-char[] letterArray = {'H', 'i'};
-System.out.println(letterArray[0]);          // outputs H
-System.out.println(letterArray.length);      // outputs 2
+char letterArray[] = {'H', 'i'};
+Serial.println(letterArray[0]);          // outputs H
 
-double[] numberArray = new double[365];
-System.out.println(numberArray[0]);          // outputs 0.0
-System.out.println(numberArray.length);      // outputs 365
+double numberArray[35];
+numberArray[0] = 19;
+Serial.println(numberArray[0]);          // outputs 19.00
 \end{javalst}
 \end{quote}
 
@@ -31,12 +30,12 @@ Array elements are accessed by \emph{index} number, starting at zero:
 \hspace{3em}
 \begin{tabular}{C{2em}C{2em}C{4em}C{2em}}
 \hline
-\multicolumn{1}{|c|}{\java{0.0}} &
-\multicolumn{1}{ c|}{\java{0.0}} &
+\multicolumn{1}{|c|}{\java{19.00}} &
+\multicolumn{1}{ c|}{\java{???}} &
 \multicolumn{1}{ c|}{$\cdots$} &
-\multicolumn{1}{ c|}{\java{0.0}} \\
+\multicolumn{1}{ c|}{\java{???}} \\
 \hline
-\fs 0 & \fs 1 &   & \fs 364 \\
+\fs 0 & \fs 1 &   & \fs 34 \\
 \end{tabular}
 \end{quote}
 
@@ -92,79 +91,13 @@ String[] c = {"alpha", "beta", "gamma"};
 \item \java{b[2] - b[0] + a[4]}
 \ans{Type: {\tt double}, Value: {\tt 98.5}}
 
-\item \java{c[1].charAt(a[0])}
+\item \java{c[1] + c[0]}
 \ans{Type: {\tt char}, Value: {\tt \qs{a}\qs}}
 
-\item \java{a[4] * b[1] <= a[5] * a[0]}
-\ans{Type: {\tt boolean}, Value: {\tt false}}
 \end{enumerate}
 
 
-\begin{tabularx}{\linewidth}{|X|}
-\hline
-Array variables can be initialized without the \java{new} keyword: \\
-~~~~~~~~\java{int[] picks = \{3, 5, 7, 2, 1\};} \\[-1ex]
-~~~~~~~~\java{String[] names = \{"Grace", "Alan", "Tim"\};} \\[1ex]
-
-However, if the variable is already declared, \java{new} is required: \\
-~~~~~~~~\java{picks = new int[] \{3, 5, 7, 2, 1\};} \\[-1ex]
-~~~~~~~~\java{names = new String[] \{"Grace", "Alan", "Tim"\};} \\
-\hline
-\end{tabularx}
-\vspace{1ex}
-
-
-\Q \label{arrayexp}
-Write \emph{expressions} that create the following \java{new} arrays. (Do not declare variables.)
-
-\begin{enumerate}
-
-\item
-\begin{tabular}{|C{3em}|C{3em}|C{3em}|C{3em}|C{3em}|C{3em}|}
-\hline
-0 & 14 & 1024 & 127 & 3 & 5521 \\
-\hline
-\end{tabular}
-
-\vspace{1ex}
-\ans{\tt new int[] \{0, 14, 1024, 127, 3, 5521\}}
-
-\item
-\begin{tabular}{|C{3em}|C{3em}|C{3em}|C{3em}|C{3em}|C{3em}|C{3em}|}
-\hline
-3.23 & 1.52 & 4.23 & 32.5 & 2.45 & 5.23 & 3.33 \\
-\hline
-\end{tabular}
-
-\vspace{1ex}
-\ans{\tt new double[] \{3.23, 1.52, 4.23, 32.5, 2.45, 5.23, 3.33\}}
-
-\end{enumerate}
-
-
-\Q \label{arraysta}
-Write \emph{statements} that both declare and initialize variables for these \java{new} arrays.
-
-\begin{enumerate}
-
-\item
-\begin{tabular}{|C{3em}|C{3em}|C{3em}|C{3em}|C{3em}|C{3em}|}
-\hline
-0 & 14 & 1024 & 127 & 3 & 5521 \\
-\hline
-\end{tabular}
-
-\vspace{1ex}
-\ans{\tt int[] a = \{0, 14, 1024, 127, 3, 5521\};}
-
-\item
-\begin{tabular}{|C{3em}|C{3em}|C{3em}|C{3em}|C{3em}|C{3em}|C{3em}|}
-\hline
-3.23 & 1.52 & 4.23 & 32.5 & 2.45 & 5.23 & 3.33 \\
-\hline
-\end{tabular}
-
-\vspace{1ex}
-\ans{\tt double[] b = \{3.23, 1.52, 4.23, 32.5, 2.45, 5.23, 3.33\};}
-
-\end{enumerate}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
